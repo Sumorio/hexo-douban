@@ -5,7 +5,7 @@
   "main": "index",
   "scripts": {},
   "dependencies": {
-    "ejs": "3.1.7",
+    "ejs": "3.1.10",
     "hexo-fs": "4.1.1",
     "hexo-i18n": "1.0.0",
     "hexo-log": "3.2.0",
