@@ -5,3 +5,4 @@ coverage/
 .idea/
 test/
 .parcel-cache/
+dist/
