@@ -3,4 +3,5 @@ node_modules/
 tmp/
 coverage/
 .idea/
-hexo-test/
+test/
+.parcel-cache/

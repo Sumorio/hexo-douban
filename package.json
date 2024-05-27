@@ -1,38 +1,54 @@
 {
   "name": "hexo-douban",
-  "version": "2.2.7",
+  "version": "2.3.0",
   "description": "Generate douban pages of books , movies and games for Hexo.",
-  "main": "index",
-  "scripts": {},
+  "main": "dist/index.js",
+  "targets": {
+    "js": {
+      "source": "index.ts",
+      "distDir": "dist/",
+      "optimize": true
+    }
+  },
+  "scripts": {
+    "build": "parcel build --no-source-maps"
+  },
   "dependencies": {
-    "ejs": "3.1.7",
+    "handlebars": "^4.7.8",
     "hexo-fs": "4.1.1",
-    "hexo-i18n": "1.0.0",
     "hexo-log": "3.2.0",
-    "path": "^0.12.7",
-    "urllib": "^3.5.0",
-    "diagnostics_channel": "^1.1.0"
+    "idouban": "1.1.0",
+    "path": "^0.12.7"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mythsman/hexo-douban.git"
+    "url": "git+https://github.com/mythsman/hexo-douban.git"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
-    "generator",
-    "plugin",
+    "hexo-plugin",
     "books",
     "movies",
+    "games",
+    "songs",
     "hexo",
-    "douban"
+    "douban",
+    "idouban"
   ],
   "author": "mythsman",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^1.10.3",
-    "eslint-config-hexo": "^1.0.2"
+    "@types/hexo": "^3.8.12",
+    "@types/hexo-log": "^0.2.6",
+    "parcel": "^2.12.0"
   },
   "bugs": {
     "url": "https://github.com/mythsman/hexo-douban/issues"
+  },
+  "engines": {
+    "node": ">= 18"
   },
   "homepage": "https://github.com/mythsman/hexo-douban/"
 }
