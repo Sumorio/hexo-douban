@@ -1,8 +1,8 @@
 "use strict";
 import { createWriteStream, mkdirSync } from "hexo-fs";
 import createLogger from "hexo-log";
-import path from "path";
 import { generate } from "./lib/generate";
+import path from "path";
 
 const supported_types = ["book", "movie", "game", "song"];
 

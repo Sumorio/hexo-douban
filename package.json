@@ -14,11 +14,9 @@
     "build": "parcel build --no-source-maps"
   },
   "dependencies": {
-    "handlebars": "^4.7.8",
     "hexo-fs": "4.1.1",
     "hexo-log": "3.2.0",
-    "idouban": "1.1.0",
-    "path": "^0.12.7"
+    "idouban": "1.1.1"
   },
   "repository": {
     "type": "git",

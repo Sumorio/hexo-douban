@@ -1,30 +1,17 @@
 import idouban from "idouban";
 import { DoubanConfig, TypeConfig } from "./types";
 import createLogger from "hexo-log";
-import Handlebars from "handlebars";
 import { readFileSync } from "hexo-fs";
 import { createRequire } from "module";
-import path from "path";
 
 const template: string = `<div id="idouban"></div>
-<style type="text/css">
-  {{{style}}}
-</style>
-<script>
-/*<!--*/
-  {{{script}}}
-/*-->*/
+<link rel="stylesheet" type="text/css" href="data:text/css;base64,{{style}}" />
+<script src="data:application/x-javascript;base64,{{script}}">
 </script>
-<script>
-/*<!--*/
- idouban.init({{{init}}}) 
-/*-->*/
+<script src="data:application/x-javascript;base64,{{init}}">
+ 
 </script>
 `;
-
-const escape_html = (unsafe: string) => {
-  return unsafe;
-};
 
 const log = createLogger({
   debug: false,
@@ -101,12 +88,12 @@ export async function generate(
     );
   }
 
-  const renderer = Handlebars.compile(template);
-  const dom = renderer({
-    style: style,
-    script: escape_html(script),
-    init: JSON.stringify(init_config),
-  });
+  const init = `idouban.init(${JSON.stringify(init_config)})`;
+
+  const dom = template
+    .replace("{{style}}", Buffer.from(style).toString("base64"))
+    .replace("{{script}}", Buffer.from(script).toString("base64"))
+    .replace("{{init}}", Buffer.from(init).toString("base64"));
 
   return {
     path: type_config.path,
