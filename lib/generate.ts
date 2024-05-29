@@ -64,16 +64,10 @@ export async function generate(
   }
 
   const script = readFileSync(
-    path.relative(
-      __dirname,
-      createRequire(__dirname).resolve("idouban/dist/index.js")
-    )
+    createRequire(__dirname).resolve("idouban/dist/index.js")
   ) as string;
   const style = readFileSync(
-    path.relative(
-      __dirname,
-      createRequire(__dirname).resolve("idouban/dist/index.js")
-    )
+    createRequire(__dirname).resolve("idouban/dist/index.css")
   ) as string;
 
   const init_config = {
