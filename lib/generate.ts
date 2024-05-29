@@ -3,6 +3,8 @@ import { DoubanConfig, TypeConfig } from "./types";
 import createLogger from "hexo-log";
 import Handlebars from "handlebars";
 import { readFileSync } from "hexo-fs";
+import { createRequire } from "module";
+import path from "path";
 
 const template: string = `<div id="idouban"></div>
 <style type="text/css">
@@ -62,10 +64,16 @@ export async function generate(
   }
 
   const script = readFileSync(
-    "../node_modules/idouban/dist/index.js"
+    path.relative(
+      __dirname,
+      createRequire(__dirname).resolve("idouban/dist/index.js")
+    )
   ) as string;
   const style = readFileSync(
-    "../node_modules/idouban/dist/index.css"
+    path.relative(
+      __dirname,
+      createRequire(__dirname).resolve("idouban/dist/index.js")
+    )
   ) as string;
 
   const init_config = {
