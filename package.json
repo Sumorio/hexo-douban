@@ -1,6 +1,6 @@
 {
   "name": "hexo-douban",
-  "version": "2.3.4",
+  "version": "2.3.5",
   "description": "Generate douban pages of books , movies and games for Hexo.",
   "main": "dist/index.js",
   "targets": {
@@ -16,7 +16,7 @@
   "dependencies": {
     "hexo-fs": "4.1.1",
     "hexo-log": "3.2.0",
-    "idouban": "1.1.2"
+    "idouban": "1.1.3"
   },
   "repository": {
     "type": "git",
